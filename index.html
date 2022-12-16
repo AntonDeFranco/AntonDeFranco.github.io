@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Final_Deliverable</title>
+<title>PPP_Loan_Analysis</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13102,7 +13102,7 @@ Loan data is segmented somewhat by state, and is not input at random.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Second-Dataset">Second Dataset<a class="anchor-link" href="#Second-Dataset">&#182;</a></h2><p>I will also bring in another dataset into this analysis. I would like to explore the relationship between poverty in the United States, and and how that may or may not affect the PPP Loans amounts taken. To faciliate this, I went to the <a href="https://data.ers.usda.gov/reports.aspx?ID=17826">USDA website</a> and found a dataset of poverty by state. This was further serparated into children (0-17 years old) in poverty and all people in poverty. I am not sure how relevant this will be, but I think it might provide some interesting insight.</p>
+<h2 id="Second-Dataset">Second Dataset<a class="anchor-link" href="#Second-Dataset">&#182;</a></h2><p>I will also bring in another dataset into this analysis. I would like to explore the relationship between poverty in the United States and and how that may or may not affect the PPP Loans amounts taken. To faciliate this, I went to the <a href="https://data.ers.usda.gov/reports.aspx?ID=17826">USDA website</a> and found a dataset of poverty by state. This was further serparated into children (0-17 years old) in poverty and all people in poverty. I am not sure how relevant this will be, but I think it might provide some interesting insight.</p>
 
 </div>
 </div>
@@ -13114,19 +13114,11 @@ Loan data is segmented somewhat by state, and is not input at random.</p>
 <ol>
 <li>Did one specific ethnicity or race borrow more money compared to others?</li>
 <li>Do states with higher poverty rates have more PPP loans on file?</li>
-<li>Did people who identify as a veteran borrow more or less on average than those who did not identify as veteran?</li>
 <li>Could I identify other relevant features that might explain a difference in loan amounts with men compared to women?</li>
 <li>Were the loan amounts equitable?</li>
 </ol>
 <p>For this project, I define equitable as the PPP loan amount for women and men being the same.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Collaboration-Plan">Collaboration Plan<a class="anchor-link" href="#Collaboration-Plan">&#182;</a></h2><p>I plan to set aside time each Wednesday from 6-9pm to work on this project, with additional work as nescessary on the weekends. Since I have the benefit of not needing to coordinate with another person, the majority of my work will be done by myself in google colab.</p>
+<p>I anticipate that, since PPP Loans were mainly meant to cover things such as employee payroll, that Jobs_Reported should be a statistically signficant variable. However, I am also curious to see what other effects variables might have and how statistically significant they might be. For my model, I will be using only the data under $150k.</p>
 
 </div>
 </div>
@@ -13155,7 +13147,7 @@ Loan data is segmented somewhat by state, and is not input at random.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1">#Link google drive, where the data is stored, to Google CoLab</span>
@@ -14549,15 +14541,7 @@ dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Adding-an-additional-dataset">Adding an additional dataset<a class="anchor-link" href="#Adding-an-additional-dataset">&#182;</a></h1><p>Going further, I would like to explore the relation between poverty in the United States and how many PPP Loans were taken out in each state. To faciliate this, I went to the <a href="https://data.ers.usda.gov/reports.aspx?ID=17826">USDA website</a> and found a dataset of poverty by state. This was further serparated into children (0-17 years old) in poverty and all people in poverty. I would like to see if PPP loans were more common in higher poverty/low income states.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="New-Dataset-EDA">New Dataset EDA<a class="anchor-link" href="#New-Dataset-EDA">&#182;</a></h2>
+<h1 id="Second-Dataset-EDA">Second Dataset EDA<a class="anchor-link" href="#Second-Dataset-EDA">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -15474,7 +15458,7 @@ dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The state, however, is currently the whole name. I need to get the two letter abbreviation in order to merge it, so I decided to rename all of the states using a map function. I figured this was an issue that had been been dealt with before. Thankfully, I was able to look up a map list on <a href="https://">Roger Allen's Github</a>.</p>
+<p>The state in this dataset is currently the whole name. I need to get the two letter abbreviation in order to merge it, so I decided to rename all of the states using a map function. I figured this was an issue that had been been dealt with before. Thankfully, I was able to look up a map list on <a href="https://">Roger Allen's Github</a>.</p>
 
 </div>
 </div>
@@ -16208,7 +16192,7 @@ dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That solves the problem of the state names. However, there are some columns with nothing in them that appeared to be created when I first read in the dataset. We'll drop those columns easily. I am also going to rename the other variable names so the are easier to differntiate. I am going to end the variable names with _All when they encompass all demographics and _Child when the variable refers to children aged 0-17. I will also check the dtypes just to be sure that everything is loaded properly.</p>
+<p>That solves the problem of the state names. However, there are some columns with nothing in them that appeared to be created when I first read in the dataset. I dropped those columns. I also renamed the other variable names so the are easier to differntiate. I am going to end the variable names with _All when they encompass all demographics and _Child when the variable refers to children aged 0-17. I will also check the dtypes just to be sure that everything is loaded properly.</p>
 
 </div>
 </div>
@@ -16263,7 +16247,7 @@ dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Everything looks great! But I have something I want to verify. The <a href="https://crsreports.congress.gov/product/pdf/R/R47030#:~:text=Under%20the%20Census%20Bureau&#39;s%20official,million%20(10.5%25"> congressional research service</a>%20in%202019) said that the poverty rate in 2020 was 11.4%. I want to see if the number I get is similar.</p>
+<p>Everything looks great! But I have something I want to verify. The <a href="https://crsreports.congress.gov/product/pdf/R/R47030#:~:text=Under%20the%20Census%20Bureau&#39;s%20official,million%20(10.5%25"> congressional research service</a>%20in%202019) said that the poverty rate in 2020 was 11.4%. I want to see if the number I get is similar. Checking these measures of spread will also give me a better idea of the shape of my data and help me get more familiar with it.</p>
 
 </div>
 </div>
@@ -17437,7 +17421,7 @@ dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that the data merged successfully with the poverty data tagged on to the end of our new dataset. Now that the two datasets are merged together, we can see how many PPP loans were taken out in each state compared to the poverty rate.</p>
+<p>We can see that the PPP data merged successfully with the poverty data and it is tagged on to the end of our new dataset. Now that the two datasets are merged together, we can see how many PPP loans were taken out in each state compared to the poverty rate.</p>
 
 </div>
 </div>
@@ -18071,7 +18055,7 @@ Name: Percent_All, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I am now going to begin preprocessing the data in preparation for the Machine Learning model that I will be constructing later on. In order to do this, I am going to perform some feature manipulation on the PPP dataset. I will start off by creating binary variables for Gender where 1 represents the borrower is female a 0 represents male. <br></p>
+<p>I am now going to begin preprocessing the data in preparation for the Machine Learning model that I will be constructing. In order to do this, I am going to perform some feature manipulation on the PPP dataset. I will start off by creating binary variables for Gender where 1 represents the borrower is female a 0 represents male. <br></p>
 <p>I am also creating a new variable called Gender_Answer which will be a binary variable represting if the borrower disclosed their gender. This variable will be 1 if they disclosed their gender and a 0 if they did not answer. <br></p>
 <p>After creating these dummy variables, I will merge the PPP dataframe with the region data in order to correctly map each state to the region it should be in.</p>
 
@@ -18638,6 +18622,20 @@ Name: Percent_All, dtype: int64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As we can see in the five random samples, each borrower state was mapped to the correct region. Alabama, Florida, and Georgia were all placed in the "South" region while California was placed in the "West" region.<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get_Dummies-issue">Get_Dummies issue<a class="anchor-link" href="#Get_Dummies-issue">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>I was having issues with the built in Pandas get_dummies function. It did not run in any reasonable amount of tieme, so I decided to do my own version of dummy encoding for the regions. This is what my code does when run:</p>
 <ol>
 <li>Create a list of each state in each region. </li>
@@ -19245,6 +19243,14 @@ Name: Percent_All, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>By taking a random subsample we can see that everything was correctly dummified into the appropriate region. <br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Creating-the-Model">Creating the Model<a class="anchor-link" href="#Creating-the-Model">&#182;</a></h1>
 </div>
 </div>
@@ -19259,14 +19265,13 @@ Name: Percent_All, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By taking a random subsample we can see that everything was correctly dummified into the appropriate region. <br></p>
-<p>Now that all the data pre-processing is done, we can begin to work on our model. I want this model to address questions 4 and 5 from my project goals:</p>
+<p>Now that all the data pre-processing is done, we can begin to work on our model. I want this model to address questions 3 and 4 from my project goals section:</p>
 <ul>
 <li>Could I identify other relevant features that might explain a difference in loan amounts with men compared to women?</li>
 <li>Were the loan amounts equitable?</li>
 </ul>
-<p>I will be used SciKit Learn to make my machine learning model. The first thing I need to do is import some dependencies from the sklearn library. I will also be graphing the regression later, so I will also import pyplot from the matplotlib library here. <br></p>
-<p>The first thing I will do is remove any observations where the gender of the borrower is missing.</p>
+<p>I will be using SciKit Learn to make my machine learning model. The first thing I need to do is import some features from the sklearn library.</p>
+<p>The first thing I will do is remove any observations where the gender of the borrower is missing. I will then check the value counts just to make sure that only male and female are present.</p>
 
 </div>
 </div>
@@ -19350,7 +19355,14 @@ Name: Gender, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that we have scaled the nescessary variables, we can specify the features of the mode and train it!</p>
+<p>Now that we have scaled the nescessary variables, we can specify the features of the mode and train it! I am going to choose the following features for my regression:</p>
+<ol>
+<li>Jobs reported</li>
+<li>Gender</li>
+<li>Region</li>
+<li>State poverty rate</li>
+</ol>
+<p>After I run the regression, I would like to see the coeffecients and the r2 score.</p>
 
 </div>
 </div>
@@ -19496,199 +19508,69 @@ Notes:
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">regression_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># load data set</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">regression_df</span><span class="p">[[</span><span class="s1">&#39;JobsReported&#39;</span><span class="p">]]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">regression_df</span><span class="p">[[</span><span class="s1">&#39;InitialApprovalAmount&#39;</span><span class="p">]]</span>
-<span class="n">linear_regressor</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>  <span class="c1"># create object for the class</span>
-<span class="n">linear_regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>  <span class="c1"># perform linear regression</span>
-<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">linear_regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># make predictions</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">linear_regressor</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">linear_regressor</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
-</pre></div>
-
-    </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Final-Conclusions">Final Conclusions<a class="anchor-link" href="#Final-Conclusions">&#182;</a></h1>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
 </div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[[15074.97153494]] [28314.17873376]
-</pre>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Could-I-identify-other-relevant-features-that-might-explain-a-difference-in-loan-amounts-with-men-compared-to-women?">Could I identify other relevant features that might explain a difference in loan amounts with men compared to women?<a class="anchor-link" href="#Could-I-identify-other-relevant-features-that-might-explain-a-difference-in-loan-amounts-with-men-compared-to-women?">&#182;</a></h2>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I believe that with my model I have successfully identified some of the releveant features that explain the difference in PPP loan amounts in men compared to women. In particular, I have identified the following confounding variables in my model:</p>
+<ol>
+<li>Reported Jobs by the borrower</li>
+<li>The gender of the borrower</li>
+<li>The region the borrower was in (Midwest, South, West, or Northeast)</li>
+<li>The state poverty rate</li>
+</ol>
+<p>According to the OLS Regression results, all of the variables I have included are statsitically signficant from zero, as they have P-values of less then 0.05.</p>
+<p><strong>JobsReported</strong> has a strong influence on the loan amount. Since PPP loans were meant to cover expenses such as employee payroll, this makes sense and it should theoretically have the largest effect out of any variables I choose to include in my model. This statistical significance follows my prediction earlier in the <em>Project Goals</em> section.</p>
+<p><strong>Gender</strong> also has a large effect on the loan amount. If a borrower is female, holding everything else constant, then she will recieve $5680.2668 less on average compared to a male.</p>
+<p>Regardion the <strong>region</strong>, people from the West and Northeast regions tend to borrow more money compared to people in other regions. Both of these regions in the U.S. are considered to have a higher cost of living, especially when compared to the Midwest or the South.</p>
+<p>I am unsure how to interpret the negative <strong>Percent_All</strong>. According to my intution, the -780.9162 coeffecient means that as a state's poverty rate was higher they borrowed less money. It makes more sense intuitively, however, that if you are in poverty you would need to borrow more money.</p>
+<p>Regardless, I believe that I have successfully identified features that, in part, explain the difference in loan amounts with respect to men compared to women.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Were-the-Loan-Amounts-Equitable?">Were the Loan Amounts Equitable?<a class="anchor-link" href="#Were-the-Loan-Amounts-Equitable?">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Overall, based on the information I have, I belive that the loan amounts between men and women were not equitable. I am, however, somewhat limited by the amount of data that I have. It is certaintly possible that there is are confounding factors that I have not incporated into my model which could explain why women recieved a smaller loan amount on average compared to men.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Thank-you-for-reading!">Thank you for reading!<a class="anchor-link" href="#Thank-you-for-reading!">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">20000</span><span class="p">,</span><span class="mi">30000</span><span class="p">,</span><span class="mi">40000</span><span class="p">,</span><span class="mi">50000</span><span class="p">,</span><span class="mi">60000</span><span class="p">,</span><span class="mi">70000</span><span class="p">,</span><span class="mi">80000</span><span class="p">,</span><span class="mi">90000</span><span class="p">,</span><span class="mi">100000</span><span class="p">,</span><span class="mi">110000</span><span class="p">,</span><span class="mi">120000</span><span class="p">,</span><span class="mi">130000</span><span class="p">,</span><span class="mi">140000</span><span class="p">,</span><span class="mi">150000</span><span class="p">]</span>
-<span class="n">temp_df</span> <span class="o">=</span> <span class="n">ppp_df_merged</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ppp_df_merged</span><span class="p">[</span><span class="s2">&quot;InitialApprovalAmount&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">150000</span> <span class="p">]</span>
-<span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;InitialApprovalAmount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;InitialApprovalAmount&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>10000000.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ppp_df_merged</span><span class="p">[</span><span class="n">ppp_df_merged</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Unanswered&#39;</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">plt</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)[</span><span class="s1">&#39;InitialApprovalAmount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Gender&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Amount Borrowed in USD&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean amount borrowed by gender&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Gender
-Female Owned    23378.688524
-Male Owned      30961.203426
-Name: InitialApprovalAmount, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">df_male</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gender_Binary&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">df_female</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gender_Binary&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
-
-<span class="n">q3</span><span class="p">,</span> <span class="n">q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df_female</span><span class="p">[</span><span class="s1">&#39;InitialApprovalAmount&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">75</span> <span class="p">,</span><span class="mi">25</span><span class="p">])</span>
-<span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
-<span class="n">iqr</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>12510.145</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">shell</span>
-<span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">execute</span> <span class="o">--</span><span class="n">to</span> <span class="n">html</span> <span class="n">Final_Deliverable</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">html</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">PPP_Loan_Analysis</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 
     </div>
@@ -19705,7 +19587,7 @@ Name: InitialApprovalAmount, dtype: float64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[NbConvertApp] WARNING | pattern &#39;Final_Deliverable.ipynb&#39; matched no files
+<pre>[NbConvertApp] WARNING | pattern &#39;/content/PPP_Loan_Analysis.ipynb&#39; matched no files
 This application is used to convert notebook files (*.ipynb)
         to various other formats.
 
@@ -19881,8 +19763,8 @@ To see all available configurables, use `--help-all`.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">CalledProcessError</span>                        Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-56-264206bdf4b8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;shell&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;jupyter nbconvert --execute --to html Final_Deliverable.ipynb\n&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">&lt;ipython-input-4-0492bb6758b9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;shell&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;jupyter nbconvert --to html /content/PPP_Loan_Analysis.ipynb\n&#39;</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/usr/local/lib/python3.8/dist-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2357</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>builtin_trap<span class="ansi-blue-fg">:</span>
@@ -19905,7 +19787,7 @@ To see all available configurables, use `--help-all`.
 </span><span class="ansi-green-intense-fg ansi-bold">    135</span>           returncode=self.returncode, cmd=self.args, output=self.output)
 <span class="ansi-green-intense-fg ansi-bold">    136</span> 
 
-<span class="ansi-red-fg">CalledProcessError</span>: Command &#39;jupyter nbconvert --execute --to html Final_Deliverable.ipynb
+<span class="ansi-red-fg">CalledProcessError</span>: Command &#39;jupyter nbconvert --to html /content/PPP_Loan_Analysis.ipynb
 &#39; returned non-zero exit status 255.</pre>
 </div>
 </div>
